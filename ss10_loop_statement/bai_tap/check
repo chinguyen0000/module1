@@ -1,0 +1,16 @@
+=IF(ISNUMBER(SEARCH("Initialize";E2));"start_app_rtwork";
+IF(ISNUMBER(SEARCH("Open";E2));"open_module";
+IF(ISNUMBER(SEARCH("Scroll to";E2));"scroll_to";
+IF(ISNUMBER(SEARCH("Scroll down";E2));"scroll_down(3)";
+IF(ISNUMBER(SEARCH("Click";E2));"click_name";
+IF(ISNUMBER(SEARCH("Wait";E2));"sleep";
+IF(ISNUMBER(SEARCH("Close screen";E2));"back";
+IF(ISNUMBER(SEARCH("Take a screenshot";E2));"screenshot";""))))))))
+
+=IF(ISNUMBER(SEARCH("click_name";J22));
+    MID(E2;FIND("""";E2)+1;FIND("""";E2;FIND("""";E2)+1)-FIND("""";E2)-1);
+    IF(ISNUMBER(SEARCH("sleep";J22));
+        VALUE(REGEXEXTRACT(E2;"[0-9]+"));
+        IF(ISNUMBER(SEARCH("scroll_down";J22));
+            VALUE(REGEXEXTRACT(J22;"\d+"));
+            "")))

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sử dụng hàm có sẵn của mảng</title>
+</head>
+<body>
+<script>
+    //Bài 1
+    let myColor = ["Red", "Green", "White", "Black"];
+    let result1 = myColor.toString();
+    alert("Bài 1: " + result1);
+
+    //Bài 2
+    let number = prompt("Nhập 1 số cho bài 2: ");
+    let string = number.toString();
+    let arrResult2 = [string[0]];
+    console.log(arrResult2);
+    for (let i = 1; i < string.length; i++) {
+        if (string[i - 1] % 2 === 0 && string[i] % 2 === 0) {
+            arrResult2.push("-", string[i]);
+        } else {
+            arrResult2.push(string[i]);
+        }
+    }
+    alert("Bài 2: " + arrResult2.join(""));
+
+    //Bài 3
+    let inputStr = prompt("Nhập 1 chuỗi cho bài 3:");
+    let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    let result3 = "";
+    for (let i = 0; i < inputStr.length; i++) {
+        if(UPPER.indexOf(inputStr[i]) !== -1) {
+            result3+=inputStr[i].toLowerCase();
+        } else if (LOWER.indexOf(inputStr[i]) !== -1) {
+            result3+=inputStr[i].toUpperCase();
+        } else {
+            result3+=inputStr[i];
+        }
+    }
+    alert("Bài 3: "+result3);
+</script>
+</body>
+</html>
