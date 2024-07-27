@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ Điển</title>
+</head>
+<body>
+Nhập từ cần dịch:
+<input id="word" type="text">
+<button onclick="translateWord()">Dịch</button>
+<p id="result"></p>
+<script>
+    function translateWord() {
+        let inputWord = document.getElementById("word").value;
+        let arrEnglish = ["banana", "apple", "orange", " grape", "starfruit", "mango", "pineapple", "coconut", "guava", "watermelon"];
+        let arrVN = ["chuối", "táo", "cam", "nho", "khế", "xoài", "dứa", "dừa", "ổi", "dưa hấu"];
+        if (arrEnglish.indexOf(inputWord) !== -1) {
+            document.getElementById("result").innerText = arrVN[arrEnglish.indexOf(inputWord)];
+        } else {
+            alert("Không thể dịch");
+        }
+    }
+</script>
+</body>
+</html>
