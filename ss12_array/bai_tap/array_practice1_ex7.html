@@ -6,10 +6,7 @@
 </head>
 <body>
 <script>
-    let arr7 = [];
-    for (let i = 0; i < 10; i++) {
-        arr7[i] = Math.floor(Math.random() * 11);  //tạo số nguyên từ 0 đến 10
-    }
+    let arr7 = [1, 2, 2, 2, 3, 4];
     console.log(arr7.toString());
     let numberV = +prompt("Nhập 1 số nguyên: ");
     let check = false;
@@ -24,6 +21,7 @@
                     arr7[j] = arr7[j + 1];
                 }
             }
+            i--;
             console.log(arr7.toString());
         }
     }
