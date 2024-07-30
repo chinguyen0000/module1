@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+<script>
+    let characters = ["a", "b", "c", "a", "@", "i", "a"];
+    let count = countAppearTimes(characters, "@");
+    document.write(count);
+
+    function countAppearTimes(inputArr, char) {
+        let position = inputArr.indexOf(char);
+        let tempArr = inputArr;
+        let count = 0;
+        if (position !== -1) {
+            while (position !== -1) {
+                count++;
+                tempArr[position] = null;
+                position = tempArr.indexOf(char);
+            }
+        }
+        return count;
+    }
+</script>
+</body>
+</html>

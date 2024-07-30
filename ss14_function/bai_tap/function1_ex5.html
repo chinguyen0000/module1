@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    let arrStar = ["polaris", "aldebaran", "deneb", "vega", " altair", "dubhe", "regulus"];
+    let arrConstellation = ["ursa", "minor", "taurus", "cygnus", "lyra", "aquila", "ursa major", "leo"]
+
+    function findCorrespondingConstellation(starName) {
+        let position = arrStar.indexOf(starName.toLowerCase());
+        if (position !== -1) {
+            return arrConstellation[position];
+        } else {
+            return "Không có ngôi sao nào";
+        }
+    }
+
+    let message = findCorrespondingConstellation(prompt("Input a star:"));
+    document.write(message);
+</script>
+</body>
+</html>
