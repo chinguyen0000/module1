@@ -7,21 +7,21 @@
 <body>
 <script>
     let characters = ["a", "b", "c", "a", "@", "i", "a"];
-    let count = countAppearTimes(characters, "@");
+    let count = countAppearTimes(characters, "a");
     document.write(count);
 
     function countAppearTimes(inputArr, char) {
-        let position = inputArr.indexOf(char);
-        let tempArr = inputArr;
         let count = 0;
-        if (position !== -1) {
-            while (position !== -1) {
+        for (let element of inputArr) {
+            if (element === char) {
                 count++;
-                tempArr[position] = null;
-                position = tempArr.indexOf(char);
             }
         }
-        return count;
+        if (count === 0) {
+            return -1;
+        } else {
+            return count;
+        }
     }
 </script>
 </body>
