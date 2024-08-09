@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        let countUppercaseLetters = 0;
+        const uppercaseLetters = [
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+            'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+            'U', 'V', 'W', 'X', 'Y', 'Z'
+        ];
+        /*const lowercaseLetters = [
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+            'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+            'u', 'v', 'w', 'x', 'y', 'z'
+        ];*/
+
+        for (let i = 0; i < str.length; i++) {
+            if (uppercaseLetters.includes(str[i])) {
+                countUppercaseLetters++;
+            }
+        }
+        if ((str.length - countUppercaseLetters) === countUppercaseLetters) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    console.log(checkString("ABCDabc1d"));
+</script>
+</body>
+</html>

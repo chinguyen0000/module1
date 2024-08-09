@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 13</title>
+</head>
+<body>
+<script>
+    function isPrime(number) {
+        if (number < 2) {
+            return false;
+        } else {
+            for (let i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+    }
+
+    let length;
+    do {
+        length = +prompt("Nhập độ dài mảng:");
+    } while (!Number.isInteger(length) || length < 1)
+    let arr = [];
+    for (let i = 0; i < length; i++) {
+        let element;
+        do {
+            element = +prompt("Nhập giá trị cuả phần tử thứ " + i);
+        } while (Number.isNaN(element))
+        arr.push(element);
+    }
+    console.log(arr);
+    let flag = true;
+    for (let arrElement of arr) {
+        if (!isPrime(arrElement)) {
+            flag = false;
+            break;
+        }
+    }
+    if (flag) {
+        alert("OK");
+    } else {
+        alert("NO");
+    }
+
+</script>
+</body>
+</html>

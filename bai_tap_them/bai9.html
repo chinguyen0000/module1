@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+<script>
+    let length;
+    do {
+        length = +prompt("Nhập độ dài mảng:");
+    } while (!Number.isInteger(length) || length < 1)
+    let arr = [];
+    for (let i = 0; i < length; i++) {
+        let element;
+        do {
+            element = +prompt("Nhập giá trị cuả phần tử thứ " + i);
+        } while (Number.isNaN(element))
+        arr.push(element);
+    }
+    console.log(arr);
+    let sum = 0;
+    for (let arrElement of arr) {
+        sum+=arrElement;
+    }
+    let avg = Math.round(sum/arr.length);
+    let count = 0
+    for (let arrElement of arr) {
+        if (arrElement === avg) {
+            count++;
+        }
+    }
+    console.log(count);
+</script>
+</body>
+</html>

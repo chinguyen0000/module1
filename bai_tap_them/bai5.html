@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    let length;
+    do {
+        length = +prompt("Nhập độ dài mảng:");
+    } while (!Number.isInteger(length) || length < 1 || (length % 2 === 1))
+    let arr = [];
+    for (let i = 0; i < length; i++) {
+        let element;
+        do {
+            element = +prompt("Nhập giá trị cuả phần tử thứ " + i);
+        } while (Number.isNaN(element))
+        arr.push(element);
+    }
+    document.write(arr);
+    let flag = true;
+    for (let i = 0; i < arr.length; i = i + 2) {
+        if (arr[i] >= arr[i + 1]) {
+            flag = false;
+            break;
+        }
+    }
+    if (flag) {
+        alert("OK");
+    } else {
+        alert("NO");
+    }
+</script>
+</body>
+</html>

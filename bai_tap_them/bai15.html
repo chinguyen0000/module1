@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 15</title>
+</head>
+<body>
+<script>
+    function createFibonacci(number) {
+        let arrFibonacci = [0, 1];
+        while (arrFibonacci[arrFibonacci.length - 1] <= number) {
+            let sum = arrFibonacci[arrFibonacci.length - 1] + arrFibonacci[arrFibonacci.length - 2];
+            arrFibonacci.push(sum);
+        }
+        arrFibonacci.pop();
+        return arrFibonacci;
+    }
+
+    let length;
+    do {
+        length = +prompt("Nhập độ dài mảng:");
+    } while (!Number.isInteger(length) || length < 1)
+    let arr = [];
+    let max = 0;
+    for (let i = 0; i < length; i++) {
+        let element;
+        do {
+            element = +prompt("Nhập giá trị cuả phần tử thứ " + i);
+        } while (Number.isNaN(element))
+        arr.push(element);
+        if (max < element) {
+            max = element;
+        }
+    }
+    console.log(arr);
+    let fibonacci = createFibonacci(max);
+    let flag = true;
+    for (let arrElement of arr) {
+        if (!fibonacci.includes(arrElement)) {
+            flag = false;
+            break;
+        }
+    }
+    if (flag) {
+        alert("OK");
+    } else {
+        alert("NO");
+    }
+
+
+
+</script>
+</body>
+</html>

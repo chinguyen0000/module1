@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 12</title>
+</head>
+<body>
+<script>
+    function checkDate(dateString) {
+        let arrString = dateString.split('/');
+        if (arrString.length !== 3) {
+            return false;
+        } else {
+            let day = parseInt(arrString[0]);
+            let month = parseInt(arrString[1]);
+            let year = parseInt(arrString[2]);
+            if (!isNaN(day) && day > 0 && day < 32) {
+                if (!isNaN(month) && month > 0 && month < 13) {
+                    if (!isNaN(year) && year > 999 && year < 2100) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
+
+    console.log(checkDate("-1/12/1979"));
+
+</script>
+</body>
+</html>

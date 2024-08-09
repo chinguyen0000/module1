@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<script>
+    let length;
+    do {
+        length = +prompt("Nhập độ dài mảng:");
+    } while (!Number.isInteger(length) || length < 1 )
+    let arr = [];
+    for (let i = 0; i < length; i++) {
+        let element;
+        do {
+            element = +prompt("Nhập giá trị cuả phần tử thứ " + i);
+        } while (Number.isNaN(element) || element <= 10 || element >= 100)
+        arr.push(element);
+    }
+    console.log(arr);
+    let arrCheck = [];
+    for (let ele of arr) {
+        let quotient = Math.floor(ele/10);     //chia lấy phần số nguyên
+        let remainder = ele%10;             //chia lấy phần số dư
+        if (remainder > quotient) {
+            arrCheck.push(ele);
+        }
+    }
+    console.log(arrCheck);
+</script>
+</body>
+</html>
