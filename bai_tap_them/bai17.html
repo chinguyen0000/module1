@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 17</title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        let arrStr = str.split(' ');
+        if (arrStr.length === 1) {
+            return arrStr[0];
+        } else {
+            let returnString = "";
+            for (let i = 0; i < arrStr.length; i++) {
+                returnString+=arrStr[i][0];
+            }
+            return returnString;
+        }
+    }
+
+    console.log(checkString("Hello"));
+    console.log(checkString("Object Oriented Programming"));
+    console.log(checkString("Nguyễn Thị A"));
+</script>
+</body>
+</html>

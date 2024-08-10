@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 19</title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        const uppercaseLetters = [
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+            'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+            'U', 'V', 'W', 'X', 'Y', 'Z'
+        ];
+        let returnString = "";
+        for (let i = 0; i < str.length; i++) {
+            if (uppercaseLetters.includes(str[i])) {
+                returnString += str[i];
+            }
+        }
+        return returnString;
+    }
+
+    console.log(checkString("Hello CoDeGym"));
+</script>
+</body>
+</html>

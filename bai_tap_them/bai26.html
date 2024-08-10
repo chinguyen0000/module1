@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 26</title>
+</head>
+<body>
+<script>
+    let numRow;
+    let numCol;
+    do {
+        numRow = +prompt("Nhập chiều dài mảng:");
+        numCol = +prompt("Nhập chiều cao mảng:")
+    } while (!Number.isInteger(numRow) || numRow < 1 || !Number.isInteger(numCol) || numCol < 1)
+    let arr = [];
+    let tempArr = [];
+    for (let i = 0; i < numRow; i++) {
+        let tempArr = [];
+        for (let j = 0; j < numCol; j++) {
+            let element;
+            do {
+                element = +prompt("Nhập giá trị cuả phần tử hàng " + i + " cột " + j);
+            } while (Number.isNaN(element))
+            tempArr.push(element);
+        }
+        arr.push(tempArr);
+    }
+    console.log(arr);
+
+    let sum = 0;
+    for (let i = 0; i < numRow; i++) {
+        for (let j = 0; j < numCol; j++) {
+            if (i === j) {
+                sum += arr[i][j] + arr[i][numCol-1-j];
+            }
+        }
+    }
+    console.log(sum);
+
+</script>
+</body>
+</html>

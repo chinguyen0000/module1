@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 23</title>
+</head>
+<body>
+<script>
+    function checkArray(array) {
+        for (let ele of array) {
+            if (isNaN(ele)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    console.log(checkArray(["111","12","34","2"]));
+    console.log(checkArray(["1a","12","34","2"]));
+
+</script>
+</body>
+</html>

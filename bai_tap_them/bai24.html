@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 24</title>
+</head>
+<body>
+<script>
+    function sumOfDivisors(num) {
+        let sum = 0;
+        for (let i = 1; i <= num; i++) {
+            if (num % i === 0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+
+    let length;
+    do {
+        length = +prompt("Nhập độ dài mảng:");
+    } while (!Number.isInteger(length) || length < 1)
+    let arr = [];
+    for (let i = 0; i < length; i++) {
+        let element;
+        do {
+            element = +prompt("Nhập giá trị cuả phần tử thứ " + i);
+        } while (Number.isNaN(element))
+        arr.push(element);
+
+    }
+    console.log(arr);
+
+    let newArr = [];
+    for (let ele of arr) {
+        newArr.push(sumOfDivisors(ele));
+    }
+    console.log(newArr);
+</script>
+</body>
+</html>
