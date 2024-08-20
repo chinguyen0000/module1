@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Mã Máy</td>
+        <td><input type="text" id="code"></td>
+    </tr>
+    <tr>
+        <td>Tên Máy</td>
+        <td><input type="text" id="name"></td>
+    </tr>
+    <tr>
+        <td>Tên Hãng Sản Xuất</td>
+        <td><input type="text" id="manufacturer"></td>
+    </tr>
+    <tr>
+        <td>Giá Bán</td>
+        <td><input type="number" id="price"></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center">
+            <button onclick="addCalculator()">Thêm Mới</button>
+        </td>
+    </tr>
+</table>
+<!--<br><br><br>
+<button onclick="sortPrice()">Sắp Xếp Theo Giá Bán</button>-->
+<br><br><br>
+<table id="displayTable">
+    <thead>
+    <tr>
+        <th>Mã Máy</th>
+        <th>Tên Máy</th>
+        <th>Tên Hãng Sản Xuất</th>
+        <th onclick="sortPrice()">Giá Bán</th>
+    </tr>
+    </thead>
+    <tbody id="display">
+
+    </tbody>
+
+</table>
+
+<script>
+    class Calculator {
+        constructor(code, name, manufacturer, price) {
+            this.code = code;
+            this.name = name;
+            this.manufacturer = manufacturer;
+            this.price = price;
+        }
+
+        getCode() {
+            return this.code;
+        }
+
+        setCode(code) {
+            this.code = code;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getManufacturer() {
+            return this.manufacturer;
+        }
+
+        setManufacturer(manufacturer) {
+            this.manufacturer = manufacturer;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        toString() {
+            return this.getCode() + " - " + this.getName() + " - " + this.getManufacturer() + " - " + this.getPrice();
+        }
+    }
+
+    let cal1 = new Calculator("MS01", "Casio 1", "Casio", 330000);
+    let cal2 = new Calculator("MS02", "Casio 2", "Casio", 400000);
+    let calculatorArray = [cal1, cal2];
+    displayCalculator();
+
+    function displayCalculator() {
+        let string = "";
+        for (let i = 0; i < calculatorArray.length; i++) {
+            string += "<tr><td>" + calculatorArray[i].getCode() + "</td><td>" + calculatorArray[i].getName() + "</td><td>" + calculatorArray[i].getManufacturer() + "</td><td>" + calculatorArray[i].getPrice() + "</td></tr>"
+        }
+        document.getElementById("display").innerHTML = string;
+    }
+
+    function addCalculator() {
+        let code = document.getElementById("code").value;
+        let name = document.getElementById("name").value;
+        let manufacturer = document.getElementById("manufacturer").value;
+        let price = +document.getElementById("price").value;
+        calculatorArray.push(new Calculator(code, name, manufacturer, price));
+        displayCalculator();
+    }
+
+    function sortPrice() {
+        let tempArr = calculatorArray;
+        for (let i = 1; i < tempArr.length; i++) {
+            if (tempArr[i].getPrice() < tempArr[i-1].getPrice()) {
+                for (let j = i; j > 0 ; j--) {
+                    if (tempArr[j].getPrice() < tempArr[j-1].getPrice()) {
+                        let temp = tempArr[j];
+                        tempArr[j] = tempArr[j-1];
+                        tempArr[j-1] = temp;
+                    }
+                }
+                i--;
+            }
+        }
+        calculatorArray = tempArr;
+        displayCalculator();
+    }
+</script>
+</body>
+</html>

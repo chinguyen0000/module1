@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Fibonacci(num) {
+        let num1 = 0;
+        let num2 = 1;
+        let result = [num1, num2];
+        while (result[result.length - 1] <= num) {
+            result.push(result[result.length - 1] + result[result.length - 2]);
+        }
+        return result;
+    }
+
+    function returnFibonacciArray(array) {
+        let max = array[0];
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        let fibonacciArr = Fibonacci(max);
+        let result = [];
+        for (let i = 0; i < array.length; i++) {
+            if (fibonacciArr.includes(array[i])) {
+                result.push(array[i]);
+            }
+        }
+        /*result = result.sort(function (a, b) {
+            return a - b;
+        });*/
+        return sortArray(result);
+    }
+
+    function sortArray(arr) {
+        let array = arr;
+        for (let i = 1; i < array.length; i++) {
+            if (array[i] < array[i - 1]) {
+                for (let j = i; j > 0; j--) {
+                    if (array[j] < array[j-1]) {
+                        let temp = array[j];
+                        array[j] = array[j - 1];
+                        array[j - 1] = temp;
+                    }
+                }
+                i--;
+            }
+        }
+        return array;
+    }
+
+    console.log(returnFibonacciArray([1, 5, 6, 13, 9, 12, 8, 0, 5, 1]));
+    //console.log(sortArray([1, 5, 6, 13, 9, 12, 8, 0, 5, 1]));
+</script>
+</body>
+</html>

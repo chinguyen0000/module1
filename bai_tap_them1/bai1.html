@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let length;
+    do {
+        length = +prompt("Nhập chiều dài mảng (<=50)");
+    } while (length <= 0 || !Number.isInteger(length))
+
+    let inputArr = [];
+    for (let i = 0; i < length; i++) {
+        let ele;
+        do {
+            ele = +prompt("Nhập phần tử thứ " + i);
+        } while (!Number.isInteger(ele))
+        inputArr.push(ele);
+    }
+    document.write(inputArr);
+    let sum = 0;
+    let count = 0;
+    for (let i = 0; i < inputArr.length; i++) {
+        if (i%3 === 0) {
+            if (inputArr[i]%5 === 0) {
+                sum+=inputArr[i];
+                count++;
+            }
+        }
+    }
+    alert(sum/count);
+</script>
+</body>
+</html>

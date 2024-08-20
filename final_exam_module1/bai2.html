@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    function roundGradeUp(grade) {
+        if (grade < 0 || grade > 100) {
+            alert("Điểm không hợp lệ ");
+        } else {
+            if (grade < 48) {
+                alert("Không làm tròn điểm: " + grade);
+                return grade;
+            } else {
+                let check = grade;
+                for (let i = 1; i < 3; i++) {
+                    check++;
+                    if (check % 5 === 0) {
+                        alert("Điểm làm tròn thành " + check);
+                        return check;
+                    }
+                }
+                alert("Không làm tròn điểm: " + grade);
+                return grade;
+            }
+        }
+    }
+
+    let grade = +prompt("Nhập điểm của học sinh ");
+    let check = roundGradeUp(grade);
+
+</script>
+</body>
+</html>

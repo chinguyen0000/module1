@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    let length = 0;
+    do {
+        length = +prompt("Nhập số lượng phần tử mảng không vượt quá 20 ");
+    } while (length <= 0 || length > 20 || !Number.isInteger(length))
+    let array = [];
+    for (let i = 0; i < length; i++) {
+        let temp;
+        do {
+            temp = +prompt("Nhập giá trị tại vị trí " + i);
+        } while (!Number.isInteger(temp))
+        array.push(temp);
+    }
+    alert("Mảng đã nhập: " + array);
+
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 3 === 0 && array[i] % 5 === 0) {
+            sum += array[i];
+        }
+    }
+    alert("Tổng của các số là bội chung của 3 và 5 là: " + sum);
+
+</script>
+</body>
+</html>

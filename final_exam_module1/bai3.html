@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+    let length = 0;
+    do {
+        length = +prompt("Nhập số lượng phần tử mảng không vượt quá 50 ");
+    } while (length <= 0 || length > 50 || !Number.isInteger(length))
+    let array = [];
+    for (let i = 0; i < length; i++) {
+        let temp;
+        do {
+            temp = +prompt("Nhập giá trị tại vị trí " + i);
+        } while (!Number.isInteger(temp))
+        array.push(temp);
+    }
+    let kNumber;
+    do {
+        kNumber = +prompt("Nhập giá trị số k: ");
+    } while (!Number.isInteger(kNumber) || kNumber <= 0)
+
+    let resultArr = [];
+    for (let i = 0; i < array.length; i++) {
+        for (let j = i + 1; j < array.length; j++) {
+            if ((array[i] + array[j]) % kNumber === 0) {
+                resultArr.push("(" + array[i] + "," + array[j] + ")");
+            }
+        }
+    }
+    alert("Có " + resultArr.length + " cặp số thỏa mãn yêu cầu là " + resultArr.join(", "));
+
+</script>
+</body>
+</html>
